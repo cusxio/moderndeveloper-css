@@ -1,0 +1,27 @@
+{
+  "name": "moderndeveloper-css",
+  "version": "0.0.1",
+  "description": "Introduction to CSS for moderndeveloper.com",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build && node ./scripts/build",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Jonathan Chan",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "browser-sync": "^2.12.1",
+    "eslint": "^2.8.0",
+    "eslint-config-cusxio": "0.0.6",
+    "event-stream": "^3.3.2",
+    "fs-extra": "^0.27.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.0",
+    "gulp-purifycss": "^0.2.0",
+    "gulp-sass": "^2.2.0"
+  }
+}
