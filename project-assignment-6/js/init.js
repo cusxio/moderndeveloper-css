@@ -17,8 +17,8 @@ $(document).ready(function () {
         e.preventDefault();
         e.stopPropagation();
         var seq = [
-            { e: $(this), p: { opacity: 0, translateX: '-100%' }, o: { duration: 500 } },
-            { e: $('.shopping__cart'), p: { translateX: ['0%', '-100%'] }, o: { duration: 500 } },
+            { e: $(this), p: { opacity: 0, translateX: '-200%' }, o: { duration: 500 } },
+            { e: $('.shopping__cart'), p: { translateX: ['0%', '-200%'] }, o: { duration: 500 } },
         ];
 
         $.Velocity.RunSequence(seq);
@@ -26,8 +26,8 @@ $(document).ready(function () {
 
     $('.shopping__cart .cart').on('click', function () {
         var seq = [
-            { e: $('.shopping__cart'), p: { translateX: ['-100%', '0%'] }, o: { duration: 500 } },
-            { e: $('#cart'), p: { opacity: 1, translateX: ['0%', '-100%'] }, o: { duration: 500 } },
+            { e: $('.shopping__cart'), p: { translateX: ['-200%', '0%'] }, o: { duration: 500 } },
+            { e: $('#cart'), p: { opacity: 1, translateX: ['0%', '-200%'] }, o: { duration: 500 } },
         ];
         $.Velocity.RunSequence(seq);
     });

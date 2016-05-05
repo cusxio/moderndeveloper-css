@@ -344,6 +344,7 @@ header .search {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin: 0 20px;
 }
 
 .shopping__cart .checkout .cart-price {
@@ -351,6 +352,14 @@ header .search {
   width: 150px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.shopping__cart .checkout .promo input {
+  width: 150px;
+  font-weight: 300;
+  outline: none;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .shopping__cart .checkout .cart {
