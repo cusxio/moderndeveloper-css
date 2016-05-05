@@ -17,7 +17,6 @@ $(document).ready(function () {
         $('.page__control a').each(function () {
             var cur = $(this);
             var target = $(cur.attr('href'));
-            console.log(target.position());
             if (target.position().top <= scrollTop && target.position().top + target.height() > scrollTop) {
                 $('.nav a span').removeClass('active');
                 cur.find('span').addClass('active');
