@@ -109,7 +109,7 @@
         addDebounceEvent(lastName, 'keyup', function (e) {
             if (e.keyCode !== 9) {
                 if (isEmpty(this.value) || !isOfLength(this.value, 2)) {
-                    validationMessage(this, 'Please enter a valid first name', true);
+                    validationMessage(this, 'Please enter a valid last name', true);
                     this.setCustomValidity('Please read the hint.');
                 } else {
                     validationMessage(this, 'Last name looks great.');
@@ -216,6 +216,7 @@
             }, 800)();
         });
     });
+
     function updateStyle() {
         const el = this.querySelector('input');
         const fraction = (el.value - el.getAttribute('min')) / (el.getAttribute('max') - el.getAttribute('min'));
@@ -227,10 +228,10 @@
         el.nextElementSibling.querySelector('.lower').style.flexGrow = fraction;
         el.nextElementSibling.querySelector('.upper').style.flexGrow = 1 - fraction;
 
-        const r = document.querySelector('#r').querySelector('input').value;
-        const g = document.querySelector('#g').querySelector('input').value;
-        const b = document.querySelector('#b').querySelector('input').value;
-        const a = document.querySelector('#a').querySelector('input').value;
+        const r = document.querySelector('#r input').value;
+        const g = document.querySelector('#g input').value;
+        const b = document.querySelector('#b input').value;
+        const a = document.querySelector('#a input').value;
         const rgba = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
         const hex = rgba2hex(rgba);
         document.querySelector('#five').style.background = rgba;
@@ -253,4 +254,180 @@
             ('0' + parseInt(color[1], 10).toString(16)).slice(-2) +
             ('0' + parseInt(color[2], 10).toString(16)).slice(-2);
     }
+    /* ---- Question 6 ----- */
+    const firstName = document.querySelector('#six #firstname');
+    addDebounceEvent(firstName, 'keyup', function (e) {
+        if (e.keyCode !== 9) {
+            if (isEmpty(this.value) || !isOfLength(this.value, 2)) {
+                validationMessage(this, 'Please enter a valid first name', true);
+                this.setCustomValidity('Please read the hint.');
+            } else {
+                validationMessage(this, 'First name looks great.');
+                this.setCustomValidity('');
+            }
+        }
+    }, 500);
+
+    const lastName = document.querySelector('#six #lastname');
+    addDebounceEvent(lastName, 'keyup', function (e) {
+        if (e.keyCode !== 9) {
+            if (isEmpty(this.value) || !isOfLength(this.value, 2)) {
+                validationMessage(this, 'Please enter a valid last name', true);
+                this.setCustomValidity('Please read the hint.');
+            } else {
+                validationMessage(this, 'Last name looks great.');
+                this.setCustomValidity('');
+            }
+        }
+    }, 500);
+
+    const email = document.querySelector('#six #email');
+    addDebounceEvent(email, 'keyup', function (e) {
+        if (e.keyCode !== 9) {
+            if (isEmpty(this.value) || !isEmailAddress(this.value)) {
+                validationMessage(this, 'Doesn\'t look like a valid email.', true);
+                this.setCustomValidity('Please read the hint.');
+            } else {
+                validationMessage(this, 'Email is beautiful.');
+                this.setCustomValidity('');
+            }
+        }
+    }, 500);
+
+    const addressOne = [document.querySelector('#six #address-one'), document.querySelector('#six #addressOne')];
+    addressOne.forEach(function (node) {
+        addDebounceEvent(node, 'keyup', function (e) {
+            if (e.keyCode !== 9) {
+                if (isEmpty(this.value)) {
+                    validationMessage(this, 'Please enter a valid adress', true);
+                    this.setCustomValidity('Please read the hint.');
+                } else {
+                    validationMessage(this, 'Sweet.');
+                    this.setCustomValidity('');
+                }
+            }
+        }, 500);
+    });
+
+    const addressTwo = [document.querySelector('#six #address-two'), document.querySelector('#six #addressTwo')];
+    addressTwo.forEach(function (node) {
+        addDebounceEvent(node, 'keyup', function (e) {
+            if (e.keyCode !== 9) {
+                if (isEmpty(this.value)) {
+                    validationMessage(this, 'Please enter a valid adress', true);
+                    this.setCustomValidity('Please read the hint.');
+                } else {
+                    validationMessage(this, 'Sweet.');
+                    this.setCustomValidity('');
+                }
+            }
+        }, 500);
+    });
+
+    const billingCity = [document.querySelector('#six #city'), document.querySelector('#six #cityInput')];
+    billingCity.forEach(function (node) {
+        addDebounceEvent(node, 'keyup', function (e) {
+            if (e.keyCode !== 9) {
+                if (isEmpty(this.value)) {
+                    validationMessage(this, 'Please enter a valid city.', true);
+                    this.setCustomValidity('Please read the hint.');
+                } else {
+                    validationMessage(this, 'Nice city :)');
+                    this.setCustomValidity('');
+                }
+            }
+        }, 500);
+    });
+
+    const billingState = [document.querySelector('#six #state'), document.querySelector('#six #stateInput')];
+    billingState.forEach(function (node) {
+        addDebounceEvent(node, 'keyup', function (e) {
+            if (e.keyCode !== 9) {
+                if (isEmpty(this.value)) {
+                    validationMessage(this, 'Hmmm ..', true);
+                    this.setCustomValidity('Please read the hint.');
+                } else {
+                    validationMessage(this, 'Looks good.');
+                    this.setCustomValidity('');
+                }
+            }
+        }, 500);
+    });
+
+    const zip = [document.querySelector('#six #zip'), document.querySelector('#six #zipCode')];
+    zip.forEach(function (node) {
+        addDebounceEvent(node, 'keyup', function (e) {
+            if (e.keyCode !== 9) {
+                if (!Number.isInteger(parseInt(this.value, 10))) { //eslint-disable-line
+                    validationMessage(this, 'Integers only !', true);
+                    this.setCustomValidity('Please read the hint.');
+                } else {
+                    validationMessage(this, 'Looks good.');
+                    this.setCustomValidity('');
+                }
+            }
+        }, 500);
+    });
+
+    const country = [document.querySelector('#six #country'), document.querySelector('#six #countryInput')];
+
+    country.forEach(function (node) {
+        addDebounceEvent(node, 'keyup', function (e) {
+            if (e.keyCode !== 9) {
+                if (isEmpty(this.value)) {
+                    validationMessage(this, 'Uhmm ..', true);
+                    this.setCustomValidity('Please read the hint.');
+                } else {
+                    validationMessage(this, 'Perfect.');
+                    this.setCustomValidity('');
+                }
+            }
+        }, 500);
+    });
+
+    let checkboxClickState = false;
+    document.querySelector('#six [type=checkbox]').addEventListener('click', function (e) {
+        checkboxClickState = !checkboxClickState;
+        if (!checkboxClickState) {
+            addressOne[1].value = '';
+            addressTwo[1].value = '';
+            billingCity[1].value = '';
+            billingState[1].value = '';
+            zip[1].value = '';
+            country[1].value = '';
+            console.log('checkbox');
+        }
+        var arr = [addressOne[0].value,
+            billingCity[0].value,
+            billingState[0].value,
+            zip[0].value,
+            country[0].value,
+        ];
+        let validation = true;
+        for (let i = 0; i < arr.length; i++) {
+            if (i === 0 || i === 1 || i === 2 || i === 4) {
+                if (isEmpty(arr[i])) {
+                    validation = false;
+                }
+            } else if (!Number.isInteger(parseInt(arr[i], 10))) {
+                validation = false;
+            }
+        }
+        if (!validation) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.querySelector('#six .error').style.opacity = 1;
+            document.querySelector('#six .error').style.color = '#d9534f';
+            document.querySelector('#six .error').innerHTML = '<i class="ion-close-round"></i> Please fill in a proper billing address.';
+        } else if (validation && checkboxClickState) {
+            document.querySelector('#six .error').style.opacity = 0;
+            document.querySelector('#six .error').innerHTML = '';
+            addressOne[1].value = addressOne[0].value;
+            addressTwo[1].value = addressTwo[0].value;
+            billingCity[1].value = billingCity[0].value;
+            billingState[1].value = billingState[0].value;
+            zip[1].value = zip[0].value;
+            country[1].value = country[0].value;
+        }
+    });
 })(document);

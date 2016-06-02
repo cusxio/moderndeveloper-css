@@ -35,11 +35,17 @@
 
 .hint
     opacity: 0
+    text-transform: none
     position: absolute
     text-align: left
     font-size: 13px
     margin-bottom: 0
     transition: opacity 0.2s ease
+
+.error
+    opacity: 0
+    transition: opacity 0.2s ease
+    font-size: 14px
 /////////////////////////////////////////////////////////////
 //                                                         //
 ///                  INTRO PAGE                          ///
@@ -686,6 +692,8 @@ $hint: #18C2C0
     .container
         max-width: 60rem
         margin: 0 auto
+    .hint
+        bottom: -20px
 
     .form__name
         color: #B9BAC5
@@ -694,8 +702,6 @@ $hint: #18C2C0
         text-transform: uppercase
         letter-spacing: 2px
         font-weight: 700
-        // margin-top: 60px
-        // padding-top: 100px
         padding-top: 30px
 
     .form__container
@@ -715,18 +721,18 @@ $hint: #18C2C0
         text-transform: uppercase
         font-weight: 700
         padding: 10px 55px
-        margin-top: 10px
         .last
             margin-left: 40px
         .first, .last, .email
             display: inline-block
+            position: relative
             label
                 margin-bottom: 10px
             label, input
                 display: block
                 min-width: 250px
         .email
-            margin-top: 20px
+            margin-top: 30px
             input
                 width: 540px
 
@@ -740,11 +746,12 @@ $hint: #18C2C0
         padding: 10px 55px
         margin-top: 10px
         .row.two, .row.three
-            margin-top: 20px
+            margin-top: 30px
         .address-two, .state, .country
             margin-left: 40px
         .address, .address-two, .city, .state, .zip, .country
             display: inline-block
+            position: relative
             label
                 margin-bottom: 10px
             label, input
@@ -799,6 +806,7 @@ $hint: #18C2C0
     .form__confirmation
         padding: 10px 55px
     button
+        cursor: pointer
         font-size: 12px
         text-transform: uppercase
         font-weight: 700
@@ -835,7 +843,7 @@ $hint: #18C2C0
             line-height: 30px
 
     section
-        margin-top: 50px
+        margin-top: 20px
         &:nth-child(1)
             margin-top: 0px
 

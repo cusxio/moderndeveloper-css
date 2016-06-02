@@ -80,23 +80,23 @@
                 </svg>
                 <form autocomplete="off" action="#">
                     <div>
-                        <input placeholder="First Name" type="text" />
+                        <input required placeholder="First Name" type="text" />
                         <p class="hint"></p>
                     </div>
                     <div>
-                        <input placeholder="Last Name" type="text" />
+                        <input required placeholder="Last Name" type="text" />
                         <p class="hint"></p>
                     </div>
                     <div>
-                        <input placeholder="Email" type="email" />
+                        <input required placeholder="Email" type="email" />
                         <p class="hint"></p>
                     </div>
                     <div>
-                        <input type="date">
+                        <input required type="date">
                         <p class="hint"></p>
                     </div>
                     <div>
-                        <input placeholder="Password" type="password" />
+                        <input required placeholder="Password" type="password" />
                         <p class="hint"></p>
                     </div>
                     <button type="submit">
@@ -185,11 +185,11 @@
                 </svg>
                 <form action="#" autocomplete="off">
                     <div>
-                        <input placeholder="Username" type="text">
+                        <input required placeholder="Username" type="text">
                         <p class="hint"></p>
                     </div>
                     <div>
-                        <input placeholder="Password" type="password">
+                        <input required placeholder="Password" type="password">
                         <p class="hint"></p>
                     </div>
                     <button type="submit">Sign In
@@ -276,14 +276,17 @@
                             <div class="first">
                                 <label for="firstname">First Name</label>
                                 <input placeholder="e.g. Richard" id="firstname" type="text" />
+                                <p class="hint"></p>
                             </div>
                             <div class="last">
                                 <label for="lastname">Last Name</label>
                                 <input placeholder="e.g. Bovell" id="lastname" type="text" />
+                                <p class="hint"></p>
                             </div>
                             <div class="email">
                                 <label for="email">Email</label>
                                 <input placeholder="e.g. rb@apple.com" id="email" type="email" />
+                                <p class="hint"></p>
                             </div>
                         </form>
                     </div>
@@ -298,30 +301,36 @@
                                 <div class="address">
                                     <label for="address-one">Address Line 1</label>
                                     <input placeholder="e.g. 1 Infinite Loop" id="address-one" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                                 <div class="address-two">
                                     <label for="address-two">Address Line 2</label>
                                     <input id="address-two" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                             </div>
                             <div class="row two">
                                 <div class="city">
                                     <label for="city">City</label>
                                     <input placeholder="e.g. Cupertino" id="city" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                                 <div class="state">
                                     <label for="state">State / Province / Region</label>
                                     <input placeholder="e.g. California" id="state" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                             </div>
                             <div class="row three">
                                 <div class="zip">
                                     <label for="zip">Zip / Postal Code</label>
                                     <input placeholder="e.g. 95014" id="zip" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                                 <div class="country">
                                     <label for="country">Country</label>
                                     <input placeholder="e.g. U.S.A" id="country" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                             </div>
                         </form>
@@ -337,30 +346,36 @@
                                 <div class="address">
                                     <label for="addressOne">Address Line 1</label>
                                     <input id="addressOne" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                                 <div class="address-two">
                                     <label for="addressTwo">Address Line 2</label>
                                     <input id="addressTwo" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                             </div>
                             <div class="row two">
                                 <div class="city">
                                     <label for="cityInput">City</label>
                                     <input id="cityInput" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                                 <div class="state">
                                     <label for="stateInput">State / Province / Region</label>
                                     <input id="stateInput" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                             </div>
                             <div class="row three">
                                 <div class="zip">
                                     <label for="zipCode">Zip / Postal Code</label>
                                     <input id="zipCode" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                                 <div class="country">
                                     <label for="countryInput">Country</label>
                                     <input id="countryInput" type="text" />
+                                    <p class="hint"></p>
                                 </div>
                             </div>
                         </form>
@@ -369,6 +384,7 @@
                 <div class="form__question">
                     <input type="checkbox" />
                     <p>Is your shipping address the same as your billing address ?</p>
+                    <p class="error"></p>
                 </div>
                 <div class="form__confirmation">
                     <button>Confirm Information</button>

@@ -39,11 +39,18 @@
 
 .hint {
   opacity: 0;
+  text-transform: none;
   position: absolute;
   text-align: left;
   font-size: 13px;
   margin-bottom: 0;
   transition: opacity 0.2s ease;
+}
+
+.error {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 14px;
 }
 
 #intro {
@@ -857,6 +864,10 @@
   margin: 0 auto;
 }
 
+#six .hint {
+  bottom: -20px;
+}
+
 #six .form__name {
   color: #B9BAC5;
   padding: 10px;
@@ -883,7 +894,6 @@
   text-transform: uppercase;
   font-weight: 700;
   padding: 10px 55px;
-  margin-top: 10px;
 }
 
 #six .personal--form .last {
@@ -892,6 +902,7 @@
 
 #six .personal--form .first,#six .personal--form .last,#six .personal--form .email {
   display: inline-block;
+  position: relative;
 }
 
 #six .personal--form .first label,#six .personal--form .last label,#six .personal--form .email label {
@@ -904,7 +915,7 @@
 }
 
 #six .personal--form .email {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #six .personal--form .email input {
@@ -922,7 +933,7 @@
 }
 
 #six .shipping--form .row.two,#six .shipping--form .row.three {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #six .shipping--form .address-two,#six .shipping--form .state,#six .shipping--form .country {
@@ -931,6 +942,7 @@
 
 #six .shipping--form .address,#six .shipping--form .address-two,#six .shipping--form .city,#six .shipping--form .state,#six .shipping--form .zip,#six .shipping--form .country {
   display: inline-block;
+  position: relative;
 }
 
 #six .shipping--form .address label,#six .shipping--form .address-two label,#six .shipping--form .city label,#six .shipping--form .state label,#six .shipping--form .zip label,#six .shipping--form .country label {
@@ -1020,6 +1032,7 @@
 }
 
 #six button {
+  cursor: pointer;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 700;
@@ -1066,7 +1079,7 @@
 }
 
 #six section {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #six section:nth-child(1) {
