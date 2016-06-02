@@ -50,6 +50,36 @@
             next.innerHTML = '<i class="ion-checkmark-round"></i> ' + msg;
         }
     }
+    /* ---- Navigation Bar ----- */
+    const navButtons = document.querySelectorAll('.page__control a[href*="#"]');
+    [].forEach.call(navButtons, function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const target = el.getAttribute('href');
+            document.querySelector('.page__control .active').classList.remove('active');
+            el.querySelector('.dot').classList.add('active');
+            Velocity(document.querySelector(target), 'scroll', { //eslint-disable-line
+                duration: 500,
+                easing: 'ease-in-out',
+            });
+        });
+    });
+
+    window.addEventListener('scroll', function () {
+        const scrollTop = document.body.scrollTop;
+        const anchors = document.querySelectorAll('.page__control a');
+        [].forEach.call(anchors, function (el) {
+            const current = el;
+            const target = document.querySelector(current.getAttribute('href'));
+            if (target.offsetTop <= scrollTop && target.offsetTop + target.clientHeight > scrollTop) {
+                document.querySelector('.nav a span').classList.remove('active');
+                current.querySelector('span').classList.add('active');
+            } else {
+                current.querySelector('span').classList.remove('active');
+            }
+        });
+    });
 
     /* ---- Constants from the validator library ----- */
 
