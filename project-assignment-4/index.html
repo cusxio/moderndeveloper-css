@@ -9,12 +9,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/kazzkiq/balloon.css/master/balloon.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" defer></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" defer></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js" defer></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js" defer></script>
-    <script type="text/javascript" src="js/q5.js" defer></script>
-    <script type="text/javascript" src="js/app.js" defer></script>
 </head>
 
 <body>
@@ -85,11 +79,26 @@
                     </g>
                 </svg>
                 <form autocomplete="off" action="#">
-                    <input placeholder="First Name" type="text" />
-                    <input placeholder="Last Name" type="text" />
-                    <input placeholder="Email" type="email" />
-                    <input type="date">
-                    <input placeholder="Password" type="password" />
+                    <div>
+                        <input placeholder="First Name" type="text" />
+                        <p class="hint"></p>
+                    </div>
+                    <div>
+                        <input placeholder="Last Name" type="text" />
+                        <p class="hint"></p>
+                    </div>
+                    <div>
+                        <input placeholder="Email" type="email" />
+                        <p class="hint"></p>
+                    </div>
+                    <div>
+                        <input type="date">
+                        <p class="hint"></p>
+                    </div>
+                    <div>
+                        <input placeholder="Password" type="password" />
+                        <p class="hint"></p>
+                    </div>
                     <button type="submit">
                         Submit <i class="ion-android-arrow-forward"></i>
                     </button>
@@ -126,35 +135,35 @@
                 <h1>What is your favourite Operating System?</h1>
                 <form action="">
                     <div class="opt">
-                        <input id="r1" type="radio" value="Windows" name="opt" />
+                        <input required id="r1" type="radio" value="Windows" name="opt" />
                         <div class="radio"></div>
                         <label for="r1">Windows</label>
                     </div>
                     <div class="opt">
-                        <input id="r2" type="radio" value="Mac OS X" name="opt" />
+                        <input required id="r2" type="radio" value="Mac OS X" name="opt" />
                         <div class="radio"></div>
                         <label for="r2">Mac OS X</label>
                     </div>
                     <div class="opt">
-                        <input id="r3" type="radio" value="Arch Linux" name="opt" />
+                        <input required id="r3" type="radio" value="Arch Linux" name="opt" />
                         <div class="radio"></div>
                         <label for="r3">Arch Linux</label>
                     </div>
                     <div class="opt">
-                        <input id="r4" type="radio" value="Ubuntu" name="opt" />
+                        <input required id="r4" type="radio" value="Ubuntu" name="opt" />
                         <div class="radio"></div>
                         <label for="r4">Ubuntu</label>
                     </div>
                     <div class="opt">
-                        <input id="r5" type="radio" value="other" name="opt" />
+                        <input required id="r5" type="radio" value="other" name="opt" />
                         <div class="radio"></div>
                         <label for="r5">Other, specify:</label>
                     </div>
                     <input placeholder="e.g. Redox" type="text" />
+                    <div class="button">
+                        <button type="submit">Submit</button>
+                    </div>
                 </form>
-            </div>
-            <div class="button">
-                <button type="submit">Submit</button>
             </div>
         </div>
     </div>
@@ -175,9 +184,15 @@
                     </g>
                 </svg>
                 <form action="#" autocomplete="off">
-                    <input placeholder="Username" type="text">
-                    <input placeholder="Password" type="password">
-                    <button>Sign In
+                    <div>
+                        <input placeholder="Username" type="text">
+                        <p class="hint"></p>
+                    </div>
+                    <div>
+                        <input placeholder="Password" type="password">
+                        <p class="hint"></p>
+                    </div>
+                    <button type="submit">Sign In
                         <i class="ion-android-arrow-forward"></i></button>
                     <h1>Forgot Password ?</h1>
                 </form><span class="or">or connect with</span>
@@ -263,12 +278,12 @@
                                 <input placeholder="e.g. Richard" id="firstname" type="text" />
                             </div>
                             <div class="last">
-                                <label for="firstname">Last Name</label>
-                                <input placeholder="e.g. Bovell" id="firstname" type="text" />
+                                <label for="lastname">Last Name</label>
+                                <input placeholder="e.g. Bovell" id="lastname" type="text" />
                             </div>
                             <div class="email">
-                                <label for="firstname">Email</label>
-                                <input placeholder="e.g. rb@apple.com" id="firstname" type="email" />
+                                <label for="email">Email</label>
+                                <input placeholder="e.g. rb@apple.com" id="email" type="email" />
                             </div>
                         </form>
                     </div>
@@ -320,32 +335,32 @@
                         <form class="form--shipping" action="">
                             <div class="row one">
                                 <div class="address">
-                                    <label for="address-one">Address Line 1</label>
-                                    <input placeholder="" id="address-one" type="text" />
+                                    <label for="addressOne">Address Line 1</label>
+                                    <input id="addressOne" type="text" />
                                 </div>
                                 <div class="address-two">
-                                    <label for="address-two">Address Line 2</label>
-                                    <input id="address-two" type="text" />
+                                    <label for="addressTwo">Address Line 2</label>
+                                    <input id="addressTwo" type="text" />
                                 </div>
                             </div>
                             <div class="row two">
                                 <div class="city">
-                                    <label for="city">City</label>
-                                    <input placeholder="" id="city" type="text" />
+                                    <label for="cityInput">City</label>
+                                    <input id="cityInput" type="text" />
                                 </div>
                                 <div class="state">
-                                    <label for="state">State / Province / Region</label>
-                                    <input placeholder="" id="state" type="text" />
+                                    <label for="stateInput">State / Province / Region</label>
+                                    <input id="stateInput" type="text" />
                                 </div>
                             </div>
                             <div class="row three">
                                 <div class="zip">
-                                    <label for="zip">Zip / Postal Code</label>
-                                    <input placeholder="" id="zip" type="text" />
+                                    <label for="zipCode">Zip / Postal Code</label>
+                                    <input id="zipCode" type="text" />
                                 </div>
                                 <div class="country">
-                                    <label for="country">Country</label>
-                                    <input placeholder="" id="country" type="text" />
+                                    <label for="countryInput">Country</label>
+                                    <input id="countryInput" type="text" />
                                 </div>
                             </div>
                         </form>
@@ -583,7 +598,7 @@
                                 <option value="12">12</option>
                             </select>
                             <span>/</span>
-                            <select id="expiry-date">
+                            <select id="expiryDate">
                                 <option>YYYY</option>
                                 <option value="2016">2016</option>
                                 <option value="2017">2017</option>
@@ -615,6 +630,13 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js" defer></script>
+    <script type="text/javascript" src="js/validator.js" defer></script>
+    <script type="text/javascript" src="js/init.js" defer></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
 </body>
 
 </html>

@@ -7,6 +7,7 @@ var autoprefixer = require('autoprefixer');
 var purify = require('gulp-purifycss');
 var minimist = require('minimist');
 var es = require('event-stream');
+// var cssnano = require('gulp-cssnano');
 
 var opts = {
     string: ['project'],
@@ -24,6 +25,7 @@ var pa4 = path.join(process.cwd(), 'project-assignment-4');
 var pa5 = path.join(process.cwd(), 'project-assignment-5');
 var pa6 = path.join(process.cwd(), 'project-assignment-6');
 var dist = path.join(process.cwd(), 'dist');
+// var pa = path.join(process.cwd(), 'team-pa');
 
 var projectPath;
 var port;
@@ -74,6 +76,7 @@ gulp.task('sass', function () {
         .pipe(purify([path.join(projectPath, 'index.html')], {
             info: true,
             rejected: true,
+            whitelist: ['.invalid'],
         }))
         .pipe(gulp.dest(path.join(projectPath, 'css')))
         .pipe(bs.reload({ stream: true }));
@@ -96,7 +99,20 @@ gulp.task('build', function () {
         .pipe(purify([path.join(i, 'index.html')], {
             info: true,
             rejected: true,
+            whitelist: ['.invalid'],
         }))
         .pipe(gulp.dest(path.join(i, 'css')));
     }));
 });
+
+// gulp.task('pa', function () {
+//     return gulp.src(path.join(pa, '*.scss'))
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
+//         .pipe(purify([path.join(pa, 'index.html')], {
+//             info: true,
+//             rejected: true,
+//         }))
+//         .pipe(cssnano())
+//         .pipe(gulp.dest(path.join(pa, 'css')));
+// });

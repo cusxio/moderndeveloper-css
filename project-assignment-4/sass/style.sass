@@ -32,6 +32,14 @@
     .dot.active
         background-color: #fff
 
+
+.hint
+    opacity: 0
+    position: absolute
+    text-align: left
+    font-size: 13px
+    margin-bottom: 0
+    transition: opacity 0.2s ease
 /////////////////////////////////////////////////////////////
 //                                                         //
 ///                  INTRO PAGE                          ///
@@ -65,11 +73,11 @@
         color: #fff
         letter-spacing: 2px
         font-weight: 300
-        
+
     .container
         max-width: 60rem
         margin: 0 auto
-        padding-top: 100px    
+        padding-top: 100px
     .signup
         text-align: center
         max-width: 400px
@@ -87,20 +95,22 @@
             padding: 30px 0
     form
         padding: 0 50px
+        div
+            position: relative
+            margin-bottom: 45px
+            &:nth-of-type(5)
+                margin-bottom: 0
         input
             border: none
             border-bottom: 1px solid #456CD5
             color: #454BE6
             outline: none
             width: 100%
-            margin-top: 40px
             font-weight: 300
-            &:nth-child(1)
-                margin-top: 0px
             &::placeholder
                 color: #456CD5
                 font-weight: 300
-            
+
     button
         cursor: pointer
         border: none
@@ -124,7 +134,7 @@
     input[type=date]
         font-weight: 300
         color: #456CD5
-        
+
     .question
         text-align: left
         max-width: 400px
@@ -154,7 +164,7 @@
         height: 100vh
         background: linear-gradient(135deg, #74bddb 0%, #a8d1eb 32%, #cddbf5 56%, #e4e6fb 73%, #f6f4f8 100%)
         flex-direction: column
-        
+
     .search
         display: flex
         flex-direction: row
@@ -172,7 +182,7 @@
             color: #A186D3
             opacity: 0.5
         color: #777
-        
+
     .categories
         user-select: none
         position: relative
@@ -208,7 +218,7 @@
         color: #A186D3
         padding-right: 30px
         transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
-        
+
     .submit
         cursor: pointer
         padding-top: 5px
@@ -223,7 +233,7 @@
         &:hover
             i
                 color: #7956B9
-            
+
     .note
         margin-top: 80px
         font-size: 14px
@@ -247,18 +257,18 @@
     h1
         color: #fff
         text-align: center
-        
+
     .question
         width: 100%
         margin: 0 auto
         padding-top: 150px
         margin-bottom: 50px
-        
+
     form
         text-align: left
         width: 40%
         margin: 0 auto
-        
+
     .opt
         margin-top: 50px
         position: relative
@@ -297,13 +307,13 @@
             height: 9px
             background-color: transparent
             transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
-        
+
     input[type=radio]:checked ~ .radio
         border: 3px solid #90E1E3
         background-color: #18C2C0
         &::before
             background-color: #fff
-        
+
     input[type=text]
         margin-left: 30px
         display: block
@@ -321,7 +331,10 @@
             color: #444880
         &:focus, &:active
             border-color: #6469ad
-        
+    .button
+        margin-top: 50px
+        display: flex
+        justify-content: center
     .button button
         cursor: pointer
         font-size: 1.2rem
@@ -354,11 +367,11 @@
         letter-spacing: 2px
         font-weight: 300
         cursor: pointer
-        
+
     .container
         max-width: 60rem
         margin: 0 auto
-        padding-top: 100px    
+        padding-top: 100px
     .signup
         text-align: center
         max-width: 400px
@@ -383,7 +396,7 @@
             color: #AAA
             margin-bottom: 10px
             letter-spacing: 2px
-            &::before        
+            &::before
                 content: ''
                 display: block
                 width: 100px
@@ -391,7 +404,7 @@
                 top: 0.5em
                 right: 110%
                 border-top: 1px solid #AAA
-            &::after      
+            &::after
                 content: ''
                 display: block
                 width: 100px
@@ -402,6 +415,11 @@
 
     form
         padding: 0 50px
+        div
+            position: relative
+            margin-bottom: 40px
+            &:nth-child(2)
+                margin-bottom: 0
         input
             border: none
             border-bottom: 1px solid #456CD5
@@ -421,7 +439,7 @@
             margin-bottom: 40px
             font-weight: 400
             letter-spacing: 0
-            
+
     button
         cursor: pointer
         border: none
@@ -445,7 +463,7 @@
     input[type=date]
         font-weight: 300
         color: #456CD5
-        
+
     .social
         min-height: 20px
         max-width: 400px
@@ -468,7 +486,7 @@
             background-color: #55acee
             width: 50%
             padding: 10px
-        
+
     .question
         cursor: default
         text-align: left
@@ -488,7 +506,7 @@
 //                                                         //
 ///                  QUESTION FIVE                       ///
 ////                                                   ////
-//////////////////////////////////////////////////////////  
+//////////////////////////////////////////////////////////
 
 #five
     .container
@@ -497,7 +515,7 @@
         justify-content: center
         height: 100vh
         flex-direction: column
-        
+
     .controls
         display: flex
 
@@ -510,6 +528,8 @@
 
 
     .color
+        cursor: default
+        pointer-events: none
         font-size: 2rem
         color: #444
         font-family: 'Roboto'
@@ -519,7 +539,7 @@
         width: 20px
         margin-left: -10px
         left: 50%
-        
+
     input[type=range]
         width: 15vw
         z-index: 1
@@ -555,7 +575,7 @@
         &::-moz-range-thumb
             background: transparent
             border: 2px solid rgba(0,0,0, 0.26)
-        
+
     input[type=range].clicked
         &::-webkit-slider-thumb
             background: rgb(63,81,181)
@@ -563,7 +583,7 @@
         &::-moz-range-thumb
             background: rgb(63,81,181)
             transform: scale(1.5)
-        
+
     input[type=range].zero.clicked
         &::-webkit-slider-thumb
             background: transparent
@@ -571,7 +591,7 @@
         &::-moz-range-thumb
             background: transparent
             transform: scale(1.5)
-        
+
     .sliders
         position: absolute
         background: transparent
@@ -591,7 +611,7 @@
             flex: 1 1 0%
             position: relative
             transition: left 0.18s cubic-bezier(0.4, 0, 0.2, 1)
-            
+
     input[type=range].zero:active + .sliders > .upper
         left: 3px
 
@@ -612,7 +632,7 @@
         display: inline-block
         color: #444
         border-bottom: 2px solid rgb(63,81,181)
-        padding: 10px 
+        padding: 10px
         outline: none
 
     button
@@ -634,17 +654,17 @@
             background-color: #3e61bf
         &:active, &:focus
             outline: none
-        
+
     // Effects
 
-    svg 
+    svg
         position: absolute
         top: 0
         left: 0
         width: 100%
         height: 100%
 
-    circle 
+    circle
         fill: rgba(255,255,255,0.1)
 
 
@@ -677,7 +697,7 @@ $hint: #18C2C0
         // margin-top: 60px
         // padding-top: 100px
         padding-top: 30px
-        
+
     .form__container
         width: 100%
         min-height: 300px
@@ -709,7 +729,7 @@ $hint: #18C2C0
             margin-top: 20px
             input
                 width: 540px
-        
+
     // Shipping Address
     .shipping--form
         color: $font
@@ -766,7 +786,7 @@ $hint: #18C2C0
         padding: 10px
         transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
         color: $hint
-        &:-webkit-autofill 
+        &:-webkit-autofill
             -webkit-box-shadow: 0 0 0px 1000px white inset
             -webkit-text-fill-color: $hint
         &:focus
@@ -774,7 +794,7 @@ $hint: #18C2C0
         &::placeholder
             font-weight: 500
             color: $header
-        
+
     // BUTTON
     .form__confirmation
         padding: 10px 55px
@@ -796,7 +816,7 @@ $hint: #18C2C0
             background-color: #15aeac
         &:active
             background-color: #139b99
-        
+
     // UTILITIES
     .box
         cursor: default
@@ -813,7 +833,7 @@ $hint: #18C2C0
         color: $header
         &.billing
             line-height: 30px
-        
+
     section
         margin-top: 50px
         &:nth-child(1)
@@ -842,7 +862,7 @@ $bhint: #15A4FA
         max-width: 60rem
         margin: 0 auto
         padding-top: 100px
-        
+
     .card
         border-radius: 5px
         max-width: 40rem
@@ -852,7 +872,7 @@ $bhint: #15A4FA
         font-weight: 700
         text-transform: uppercase
         box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.22), 0 40px 77px 0 rgba(0, 0, 0, 0.22)
-        
+
     .form__name
         font-family: 'Oxygen'
         border-top-left-radius: 5px
@@ -866,7 +886,7 @@ $bhint: #15A4FA
     .time__container, .message__container, .contact__container
         padding: 20px 50px
 
-        
+
     // FORM TIME / CONTACT
     .form__time, .form__contact
         color: $headings
@@ -927,7 +947,7 @@ $bhint: #15A4FA
         &::placeholder
             font-weight: 300
             color: #A9A9A9
-        
+
     select
         cursor: pointer
         appearance: none
@@ -953,7 +973,7 @@ $bhint: #15A4FA
         padding: 10px
         transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
         color: $bhint
-        &:-webkit-autofill 
+        &:-webkit-autofill
             -webkit-box-shadow: 0 0 0px 1000px white inset
             -webkit-text-fill-color: $bhint
         &:focus
@@ -964,7 +984,7 @@ $bhint: #15A4FA
 
     input[type=date]
         text-transform: uppercase
-        
+
     // BUTTON
     .form__confirmation
         padding: 10px 55px
@@ -1030,7 +1050,7 @@ $bhint: #15A4FA
             background-color: #1E2148
         .cardholder, .number, .details
             background-color: #242852
-            
+
     //////////////////// ROW ONE & TWO
     .paypal, .credit
         .left, .right
@@ -1088,7 +1108,7 @@ $bhint: #15A4FA
         background-color: #18C2C0
         &::before
             background-color: #fff
-        
+
     ////////////////// ROW THREE & FOUR
     .cardholder, .number
         .info
@@ -1114,7 +1134,7 @@ $bhint: #15A4FA
                 &::placeholder
                     font-family: 'Source Code Pro'
                     color: #444880
-                
+
     #cardnumber, #cardnumber::placeholder
         letter-spacing: 2px
     ///////////////////// DETAILS
