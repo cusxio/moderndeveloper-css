@@ -22,12 +22,12 @@ h1
 .container
     max-width: 60rem
     margin: 0 auto
-    
+
 .app
     width: 400px
     height: 600px
     margin: auto
-    
+
 .cal__container
     width: 100%
     height: 100%
@@ -47,10 +47,12 @@ h1
     flex-direction: column
     flex: 1.7
     padding-right: 40px
+    padding-left: 40px
     .last__result, .current__result
         display: flex
         flex: 1
         justify-content: flex-end
+        overflow: hidden
     .last__result
         color: #8E97A2
         font-size: 1.3rem
@@ -58,20 +60,20 @@ h1
         align-items: flex-end
     .current__result
         align-items: flex-start
-        flex: 1.2
-        font-size: 4rem
+        flex: 1.1
+        font-size: 2.5rem
         font-weight: 400
         letter-spacing: 1.5px
-    
+
 .cal__buttons
     display: flex
     flex: 5
-    
+
 .br
     border-bottom-right-radius: 15px
 .bl
     border-bottom-left-radius: 15px
-    
+
 button
     font-size: 1.9rem
     color: #444
@@ -86,25 +88,25 @@ button
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1)
     &:hover
         font-size: 2.2rem
-    
+
 .row.one
     button
         background-color: #F1E1FD
         &:hover
             background-color: #e3e1fd
-    
+
 .row.two, .row.three
     button
         background-color: #FAEDFF
         &:hover
             background-color: #edf2ff
-    
+
 .row.four, .row.five
     button
         background-color: #F1EDFF
         &:hover
             background-color: #fbffed
-        
+
 .operators
     background: linear-gradient(to bottom, #F7CF62, #FF9D66 82%)
     button
@@ -115,16 +117,16 @@ button
         &:hover
             background-color: rgba(50, 50, 50, 0.10)
             font-size: 3rem
-    
+
 // FLEX
-.row 
+.row
     display: flex
     flex-direction: row
 
 .column
     display: flex
     flex-direction: column
-    
+
 .f1
     flex: 1
 .f2
