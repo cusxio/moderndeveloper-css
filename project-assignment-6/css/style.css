@@ -381,10 +381,12 @@ header {
   -ms-flex-align: end;
       -ms-grid-row-align: flex-end;
       align-items: flex-end; }
-  .grandtotal__container .subtotal, .grandtotal__container .shipping, .grandtotal__container .grandtotal, .grandtotal__container .tax {
+  .grandtotal__container .subtotal, .grandtotal__container .shipping, .grandtotal__container .grandtotal, .grandtotal__container .tax, .grandtotal__container .discount {
     margin-top: 10px; }
-    .grandtotal__container .subtotal:first-child, .grandtotal__container .shipping:first-child, .grandtotal__container .grandtotal:first-child, .grandtotal__container .tax:first-child {
+    .grandtotal__container .subtotal:first-child, .grandtotal__container .shipping:first-child, .grandtotal__container .grandtotal:first-child, .grandtotal__container .tax:first-child, .grandtotal__container .discount:first-child {
       margin-top: 0; }
+  .grandtotal__container .discount {
+    display: none; }
   .grandtotal__container .tax {
     border-bottom: 1px solid rgba(118, 122, 125, 0.4);
     padding-bottom: 10px; }

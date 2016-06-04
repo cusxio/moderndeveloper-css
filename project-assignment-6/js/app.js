@@ -59,12 +59,34 @@
         return parseFloat(Number(input).toPrecision(9));
     }
 
+    /**
+     * A function to search a matching object from an array via an id.
+     * @param  {Number or String} id  The target id.
+     * @param  {Array} arr The data array for the search.
+     * @return {Object}     The matched object.
+     */
     function findById(id, arr) {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].id == id) { //eslint-disable-line
                 return arr[i];
             }
         }
+    }
+
+    /**
+     * A function that creates an array of all the values of an object.
+     *
+     * @param  {Object} object The input object.
+     * @return {Array}        An array with values from the input object.
+     */
+    function values(object) {
+        const result = [];
+        for (let prop in object) {
+            if (Object.hasOwnProperty.call(object, prop)) {
+                result.push(object[prop]);
+            }
+        }
+        return result;
     }
 
     /* ---- Fake Data ----- */
@@ -81,6 +103,12 @@
         });
     }
 
+    const coupons = {
+        '20OFF': 0.2,
+        'BIGSALE': 0.5,
+        'FLASHSLAE': 0.05,
+    };
+
     /* ----  Begin  ----- */
     documentReady(function () {
         /**
@@ -91,6 +119,7 @@
             items: [],
             quantity: {},
             action: '',
+            discount: {},
         };
 
         function reducer(state = initialState, action) {
@@ -144,6 +173,13 @@
                         cart: state.cart + 1,
                         action: action.type,
                         quantity: quantity,
+                    });
+                }
+                case 'DISCOUNT': {
+                    return Object.assign({}, state, {
+                        discount: {
+                            [action.discount]: coupons[action.discount],
+                        },
                     });
                 }
                 default:
@@ -216,6 +252,15 @@
             el.addEventListener('click', function () {
                 dispatch({ type: 'ADD', product: products[el.parentNode.getAttribute('id')] });
             });
+        });
+
+        document.querySelector('.voucher__container .button').addEventListener('click', function () {
+            const discountCode = document.querySelector('.voucher__container input').value;
+            if (coupons[discountCode]) {
+                dispatch({ type: 'DISCOUNT', discount: discountCode });
+            } else {
+                Velocity(document.querySelector('.voucher__container input'), 'callout.shake');
+            }
         });
         /**
         * A function that is invoked whenever the state changes. So when the state changes, the display output in the browser also changes.
@@ -309,15 +354,24 @@
                 });
             }
             /**
-             * Calculating total price.
+             * Calculating prices.
              *
              */
+            // TODO: Cleanup Code.
             let subTotal = 0;
             store.getState().items.forEach(function (item) {
                 subTotal += item.price * (store.getState().quantity[item.id]);
             });
-            const taxes = fixFloat(subTotal * 0.07);
-            const grandTotal = fixFloat(subTotal + taxes + 15);
+            const discounts = values(store.getState().discount);
+            let discount = 0;
+            if (discounts.length === 1) {
+                discount = discounts[0];
+                console.log(document.querySelector('.discount .price'));
+                document.querySelector('.discount .price').innerHTML = `$ ${fixFloat(subTotal * discount)}`;
+                document.querySelector('.discount').style.display = 'flex';
+            }
+            const taxes = fixFloat(subTotal * 0.05);
+            const grandTotal = fixFloat(subTotal + taxes + 15 - (subTotal * discount));
             document.querySelector('.subtotal .price').innerHTML = `$ ${subTotal}`;
             document.querySelector('.tax .price').innerHTML = `$ ${taxes}`;
             document.querySelector('.grandtotal .price').innerHTML = `$ ${grandTotal}`;

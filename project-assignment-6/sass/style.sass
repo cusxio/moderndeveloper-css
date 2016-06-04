@@ -367,10 +367,12 @@ header
     display: none
     flex-direction: column
     align-items: flex-end
-    .subtotal, .shipping, .grandtotal, .tax
+    .subtotal, .shipping, .grandtotal, .tax, .discount
         margin-top: 10px
         &:first-child
             margin-top: 0
+    .discount
+        display: none
     .tax
         border-bottom: 1px solid rgba(118, 122, 125, 0.4)
         padding-bottom: 10px
