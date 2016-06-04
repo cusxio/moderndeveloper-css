@@ -59,6 +59,14 @@
         return parseFloat(Number(input).toPrecision(9));
     }
 
+    function findById(id, arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].id == id) { //eslint-disable-line
+                return arr[i];
+            }
+        }
+    }
+
     /* ---- Fake Data ----- */
     let products = [];
     for (let i = 0; i < 12; i++) {
@@ -81,19 +89,61 @@
         const initialState = {
             cart: 0,
             items: [],
-            subtotal: 0,
-            quantity: {}, // TODO: Start Here.
+            quantity: {},
+            action: '',
         };
 
         function reducer(state = initialState, action) {
             switch (action.type) {
                 case 'ADD': {
+                    // Copying state to prevent state mutation.
                     const arr = state.items.slice();
-                    arr.push(action.product);
+                    // Only add items into the cart if it does not already exist.
+                    if (!state.quantity[action.product.id]) {
+                        arr.push(action.product);
+                    }
                     return Object.assign({}, state, {
+                        action: action.type,
                         cart: state.cart + 1,
                         items: arr,
-                        subtotal: state.subtotal + action.product.price,
+                        quantity: Object.assign({}, state.quantity, {
+                            [action.product.id]: state.quantity[action.product.id] ? state.quantity[action.product.id] + 1 : 1,
+                        }),
+                    });
+                }
+                case 'REMOVE': {
+                    const arr = state.items.slice()
+                    .filter(function (item) {
+                        if (item.id != action.id) { //eslint-disable-line
+                            return true;
+                        }
+                        return false;
+                    });
+                    const quantity = Object.assign({}, state.quantity);
+                    delete quantity[action.id];
+                    return Object.assign({}, state, {
+                        action: action.type,
+                        cart: state.cart - state.quantity[action.id],
+                        items: arr,
+                        quantity: quantity,
+                    });
+                }
+                case 'DECREASE': {
+                    const quantity = Object.assign({}, state.quantity);
+                    quantity[action.id] = state.quantity[action.id] - 1;
+                    return Object.assign({}, state, {
+                        cart: state.cart - 1,
+                        action: action.type,
+                        quantity: quantity,
+                    });
+                }
+                case 'INCREASE': {
+                    const quantity = Object.assign({}, state.quantity);
+                    quantity[action.id] = state.quantity[action.id] + 1;
+                    return Object.assign({}, state, {
+                        cart: state.cart + 1,
+                        action: action.type,
+                        quantity: quantity,
                     });
                 }
                 default:
@@ -165,7 +215,6 @@
         [].forEach.call(document.querySelectorAll('.product .add'), function (el) {
             el.addEventListener('click', function () {
                 dispatch({ type: 'ADD', product: products[el.parentNode.getAttribute('id')] });
-                console.log(store.getState());
             });
         });
         /**
@@ -173,53 +222,107 @@
         *
         */
         function render() {
+            console.log(store.getState());
+            /**
+             * Checking state so that the DOM does not have to rerender that often.
+             * Updating UI based on cart items.
+             */
             if (store.getState().cart > 0) {
-                /**
-                 * Checking state so that the DOM does not have to rerender that often.
-                 *
-                 */
-                if (document.querySelector('.noproduct').style.display !== 'none') {
-                    document.querySelector('.grandtotal__container').style.display = 'flex';
-                    document.querySelector('.voucher__container').style.display = 'block';
-                    document.querySelector('.heading.coupon').style.display = 'block';
-                    document.querySelector('.heading.summary').style.display = 'block';
-                    document.querySelector('.noproduct').style.display = 'none';
-                }
+                document.querySelector('.grandtotal__container').style.display = 'flex';
+                document.querySelector('.voucher__container').style.display = 'block';
+                document.querySelector('.heading.coupon').style.display = 'block';
+                document.querySelector('.heading.summary').style.display = 'block';
+                document.querySelector('.noproduct').style.display = 'none';
+            } else {
+                document.querySelector('.grandtotal__container').style.display = 'none';
+                document.querySelector('.voucher__container').style.display = 'none';
+                document.querySelector('.heading.coupon').style.display = 'none';
+                document.querySelector('.heading.summary').style.display = 'none';
+                Velocity(document.querySelector('.noproduct'), 'transition.slideDownIn');
+            }
+            /**
+             * State check to prevent uncessary re-render of DOM elements.
+             *
+             */
+            if (store.getState().action === 'ADD') {
                 Velocity(document.querySelector('#cart .count'), 'callout.bounce');
-                document.querySelector('#cart .count').innerHTML = store.getState().cart;
-
                 /**
                  * Updating the shopping cart as more items are added to it.
                  *
                  */
-                const state = store.getState();
                 let itemHTMLString = '<div class="noproduct" style="display: none;">Your Shopping Cart is Empty</div>';
-                state.items.forEach(function (item) {
-                    itemHTMLString += `<div class="checkout__item">
+                store.getState().items.forEach(function (item) {
+                    itemHTMLString += `<div data-id="${item.id}" class="checkout__item">
                         <div class="img"></div>
                         <div class="name">${item.name}</div>
                         <div class="quantity">
                             <div class="increase"><i class="ion-ios-arrow-up"></i></div>
-                            <input value="1" type="text">
+                            <input value="${store.getState().quantity[item.id]}" type="text">
                             <div class="decrease"><i class="ion-ios-arrow-down"></i></div>
                         </div>
-                        <div class="price">$ ${item.price}</div>
+                        <div class="price">$ ${store.getState().quantity[item.id] * item.price}</div>
                         <div class="remove"><i class="ion-trash-b"></i></div>
                     </div>`;
                 });
                 document.querySelector('.products__container').innerHTML = itemHTMLString;
-
                 /**
-                 * Updating the total price.
-                 *
+                 * Attaching event listener once the DOM nodes are created. This
+                 * prevents the need complex event delegation.
                  */
-                const subTotal = store.getState().subtotal;
-                const taxes = fixFloat(subTotal * 0.07);
-                const grandTotal = fixFloat(subTotal + taxes + 15);
-                document.querySelector('.subtotal .price').innerHTML = `$ ${subTotal}`;
-                document.querySelector('.tax .price').innerHTML = `$ ${taxes}`;
-                document.querySelector('.grandtotal .price').innerHTML = `$ ${grandTotal}`;
+                [].forEach.call(document.querySelectorAll('.ion-trash-b'), function (el) {
+                    el.addEventListener('click', function () {
+                        const parent = el.parentNode.parentNode;
+                        Velocity(parent, 'transition.slideDownOut');
+                        dispatch({ type: 'REMOVE', id: parent.getAttribute('data-id') });
+                    });
+                });
+
+                [].forEach.call(document.querySelectorAll('.quantity .increase'), function (el) {
+                    el.addEventListener('click', function () {
+                        const parent = el.parentNode.parentNode;
+                        const id = parent.getAttribute('data-id');
+                        dispatch({ type: 'INCREASE', id });
+                        // Updating product quantity count.
+                        parent.querySelector('input').value = store.getState().quantity[id];
+                        const item = findById(id, store.getState().items);
+                        parent.querySelector('.price').innerHTML = `$
+                         ${store.getState().quantity[id] * item.price}`;
+                    });
+                });
+
+                [].forEach.call(document.querySelectorAll('.quantity .decrease'), function (el) {
+                    el.addEventListener('click', function () {
+                        const parent = el.parentNode.parentNode;
+                        const id = parent.getAttribute('data-id');
+                        if (store.getState().quantity[id] === 1) {
+                            Velocity(parent, 'transition.slideDownOut');
+                            dispatch({ type: 'REMOVE', id });
+                        } else {
+                            dispatch({ type: 'DECREASE', id });
+                            // Updating product quantity count.
+                            parent.querySelector('input').value = store.getState().quantity[id];
+                            const item = findById(id, store.getState().items);
+                            parent.querySelector('.price').innerHTML = `$
+                             ${store.getState().quantity[id] * item.price}`;
+                        }
+                    });
+                });
             }
+            /**
+             * Calculating total price.
+             *
+             */
+            let subTotal = 0;
+            store.getState().items.forEach(function (item) {
+                subTotal += item.price * (store.getState().quantity[item.id]);
+            });
+            const taxes = fixFloat(subTotal * 0.07);
+            const grandTotal = fixFloat(subTotal + taxes + 15);
+            document.querySelector('.subtotal .price').innerHTML = `$ ${subTotal}`;
+            document.querySelector('.tax .price').innerHTML = `$ ${taxes}`;
+            document.querySelector('.grandtotal .price').innerHTML = `$ ${grandTotal}`;
+            document.querySelector('.shipping .price').innerHTML = '$ 15';
+            document.querySelector('#cart .count').innerHTML = store.getState().cart;
         }
 
         store.subscribe(render);
