@@ -124,6 +124,15 @@
             discount: {},
         };
 
+        /**
+         * The reducer function to handle actions and states.
+         * When an action is dispatched via the dispatch function, the reducer will be invoked.
+         * The reducer function will then update the state based on the actions.
+         * Once the state is updated based on the dispatched action, a new state object is returned by the reducer function.
+         * @param  {Object} state
+         * @param  {Object} action The dispatched action from store.dispatch.
+         * @return {Object}        The state of the application
+         */
         function reducer(state = initialState, action) {
             switch (action.type) {
                 case 'ADD': {
@@ -389,6 +398,10 @@
             document.querySelector('#cart .count').innerHTML = store.getState().cart;
         }
 
+        /**
+         * Subsribing to changes from the state. If that state changes, the provided function (render) will be invoked.
+         *
+         */
         store.subscribe(render);
     });
 })(document);

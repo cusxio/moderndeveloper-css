@@ -89,7 +89,10 @@
 
         /**
          * The reducer function to handle actions and states.
-         * @param  {Object}
+         * When an action is dispatched via the dispatch function, the reducer will be invoked.
+         * The reducer function will then update the state based on the actions.
+         * Once the state is updated based on the dispatched action, a new state object is returned by the reducer function.
+         * @param  {Object} state
          * @param  {Object} action The dispatched action from store.dispatch.
          * @return {Object}        The state of the application
          */
@@ -179,6 +182,10 @@
         const store = createStore(reducer);
         const dispatch = store.dispatch;
 
+        /**
+         * Attaching event listeners to all buttons.
+         *
+         */
         [].forEach.call(document.querySelectorAll('button'), function (el) {
             el.addEventListener('click', function () {
                 const type = el.getAttribute('data-type');
@@ -225,7 +232,7 @@
         }
 
         /**
-         * Subsribing to changes from the state. If that state changes, the provided function will be invoked.
+         * Subsribing to changes from the state. If that state changes, the provided function (render) will be invoked.
          *
          */
         store.subscribe(render);
