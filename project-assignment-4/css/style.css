@@ -873,14 +873,14 @@
     text-transform: uppercase;
     font-weight: 700;
     margin-top: 10px; }
-    #seven .form__time .date, #seven .form__time .time, #seven .form__time .timezone, #seven .form__time .cname, #seven .form__time .cnum, #seven .form__time .email, #seven .form__contact .date, #seven .form__contact .time, #seven .form__contact .timezone, #seven .form__contact .cname, #seven .form__contact .cnum, #seven .form__contact .email {
+    #seven .form__time .date, #seven .form__time .time, #seven .form__time .timezone, #seven .form__time .cname, #seven .form__time .num, #seven .form__time .email, #seven .form__contact .date, #seven .form__contact .time, #seven .form__contact .timezone, #seven .form__contact .cname, #seven .form__contact .num, #seven .form__contact .email {
       display: inline-block; }
-      #seven .form__time .date label, #seven .form__time .time label, #seven .form__time .timezone label, #seven .form__time .cname label, #seven .form__time .cnum label, #seven .form__time .email label, #seven .form__contact .date label, #seven .form__contact .time label, #seven .form__contact .timezone label, #seven .form__contact .cname label, #seven .form__contact .cnum label, #seven .form__contact .email label {
+      #seven .form__time .date label, #seven .form__time .time label, #seven .form__time .timezone label, #seven .form__time .cname label, #seven .form__time .num label, #seven .form__time .email label, #seven .form__contact .date label, #seven .form__contact .time label, #seven .form__contact .timezone label, #seven .form__contact .cname label, #seven .form__contact .num label, #seven .form__contact .email label {
         margin-bottom: 10px; }
-      #seven .form__time .date label, #seven .form__time .date input, #seven .form__time .time label, #seven .form__time .time input, #seven .form__time .timezone label, #seven .form__time .timezone input, #seven .form__time .cname label, #seven .form__time .cname input, #seven .form__time .cnum label, #seven .form__time .cnum input, #seven .form__time .email label, #seven .form__time .email input, #seven .form__contact .date label, #seven .form__contact .date input, #seven .form__contact .time label, #seven .form__contact .time input, #seven .form__contact .timezone label, #seven .form__contact .timezone input, #seven .form__contact .cname label, #seven .form__contact .cname input, #seven .form__contact .cnum label, #seven .form__contact .cnum input, #seven .form__contact .email label, #seven .form__contact .email input {
+      #seven .form__time .date label, #seven .form__time .date input, #seven .form__time .time label, #seven .form__time .time input, #seven .form__time .timezone label, #seven .form__time .timezone input, #seven .form__time .cname label, #seven .form__time .cname input, #seven .form__time .num label, #seven .form__time .num input, #seven .form__time .email label, #seven .form__time .email input, #seven .form__contact .date label, #seven .form__contact .date input, #seven .form__contact .time label, #seven .form__contact .time input, #seven .form__contact .timezone label, #seven .form__contact .timezone input, #seven .form__contact .cname label, #seven .form__contact .cname input, #seven .form__contact .num label, #seven .form__contact .num input, #seven .form__contact .email label, #seven .form__contact .email input {
         display: block;
         width: 200px; }
-    #seven .form__time .time, #seven .form__time .cnum, #seven .form__contact .time, #seven .form__contact .cnum {
+    #seven .form__time .time, #seven .form__time .num, #seven .form__contact .time, #seven .form__contact .num {
       margin-left: 20px; }
     #seven .form__time .timezone, #seven .form__time .email, #seven .form__contact .timezone, #seven .form__contact .email {
       margin-top: 10px;
@@ -982,6 +982,7 @@
   #seven .form__confirmation {
     padding: 10px 55px; }
   #seven button {
+    cursor: pointer;
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
