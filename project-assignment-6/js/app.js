@@ -56,7 +56,7 @@
      * @return {Number}       Prettified number output.
      */
     function fixFloat(input) {
-        return parseFloat(Number(input).toPrecision(9));
+        return parseFloat((Math.ceil(Number(input) * 20) / 20).toFixed(2));
     }
 
     /**
@@ -235,13 +235,13 @@
          */
         document.querySelector('#cart').addEventListener('click', function (e) {
             e.preventDefault();
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflowY = 'hidden';
             document.querySelector('.shopping__container').style.display = 'block';
             Velocity(document.querySelector('.shopping__cart--container'), 'fadeIn');
         });
 
         document.querySelector('.shopping__container .close').addEventListener('click', function () {
-            document.body.style.overflow = 'scroll';
+            document.body.style.overflowY = 'scroll';
             document.querySelector('.shopping__container').style.display = 'none';
         });
 
@@ -357,7 +357,6 @@
              * Calculating prices.
              *
              */
-            // TODO: Cleanup Code.
             let subTotal = 0;
             store.getState().items.forEach(function (item) {
                 subTotal += item.price * (store.getState().quantity[item.id]);
@@ -366,11 +365,10 @@
             let discount = 0;
             if (discounts.length === 1) {
                 discount = discounts[0];
-                console.log(document.querySelector('.discount .price'));
-                document.querySelector('.discount .price').innerHTML = `$ ${fixFloat(subTotal * discount)}`;
+                document.querySelector('.discount .price').innerHTML = ` &minus; $ ${fixFloat(subTotal * discount)}`;
                 document.querySelector('.discount').style.display = 'flex';
             }
-            const taxes = fixFloat(subTotal * 0.05);
+            let taxes = fixFloat((subTotal * 0.05));
             const grandTotal = fixFloat(subTotal + taxes + 15 - (subTotal * discount));
             document.querySelector('.subtotal .price').innerHTML = `$ ${subTotal}`;
             document.querySelector('.tax .price').innerHTML = `$ ${taxes}`;

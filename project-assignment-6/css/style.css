@@ -64,57 +64,32 @@ header {
   padding-top: 50px;
   padding-bottom: 120px; }
 
-.nav__personal {
+.nav__container {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  height: 15%; }
-  .nav__personal a {
-    display: block;
-    margin-top: 40px; }
-  .nav__personal .svg {
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .nav__container a {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    .nav__container a:first-child {
+      padding-top: 40px; }
+  .nav__container .svg {
     width: 40px;
     height: 40px; }
-
-.nav__site {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
-  height: 75%; }
-  .nav__site a {
-    margin-top: 40px;
-    display: block; }
-    .nav__site a:first-child {
-      margin-top: 100px; }
-  .nav__site .svg {
-    width: 45px;
-    height: 45px; }
-
-.nav__checkout {
-  height: 10%;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: center;
-      justify-content: center; }
-  .nav__checkout .cart, .nav__checkout img {
+  .nav__container .cart, .nav__container img {
     position: relative;
     width: 45px;
     height: 45px; }
-  .nav__checkout .count {
+  .nav__container #cart {
+    padding-bottom: 40px; }
+  .nav__container .count {
     position: absolute;
     top: -15px;
     right: -15px;

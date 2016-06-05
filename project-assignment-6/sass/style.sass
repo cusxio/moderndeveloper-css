@@ -76,45 +76,25 @@ header
 ///                      NAV                          //
 ///..................................................//
 
-.nav__personal
+.nav__container
     display: flex
     flex-direction: column
-    align-items: center
-    justify-content: flex-start
-    height: 15%
+    justify-content: space-between
     a
-        display: block
-        margin-top: 40px
+        display: flex
+        align-items: center
+        justify-content: center
+        &:first-child
+            padding-top: 40px
     .svg
         width: 40px
         height: 40px
-
-.nav__site
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: flex-start
-    height: 75%
-    a
-        margin-top: 40px
-        display: block
-        &:first-child
-            margin-top: 100px
-    .svg
-        width: 45px
-        height: 45px
-
-
-.nav__checkout
-    height: 10%
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
     .cart, img
         position: relative
         width: 45px
         height: 45px
+    #cart
+        padding-bottom: 40px
     .count
         position: absolute
         top: -15px
