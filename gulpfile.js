@@ -6,7 +6,8 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var minimist = require('minimist');
 var es = require('event-stream');
-// var cssnano = require('gulp-cssnano');
+var cssnano = require('gulp-cssnano');
+var perfectionist = require('perfectionist');
 
 var opts = {
     string: ['project'],
@@ -72,6 +73,8 @@ gulp.task('sass', function () {
     return gulp.src(path.join(projectPath, 'sass/*.sass'))
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
+        .pipe(cssnano())
+        .pipe(postcss([perfectionist()]))
         .pipe(gulp.dest(path.join(projectPath, 'css')))
         .pipe(bs.reload({ stream: true }));
 });
@@ -90,6 +93,8 @@ gulp.task('build', function () {
         return gulp.src(path.join(i, 'sass/*.sass'))
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
+        .pipe(cssnano())
+        .pipe(postcss([perfectionist()]))
         .pipe(gulp.dest(path.join(i, 'css')));
     }));
 });
