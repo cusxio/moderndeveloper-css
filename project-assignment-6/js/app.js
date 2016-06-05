@@ -49,10 +49,11 @@
             subscribe,
         };
     }
+
     /**
      * A function to prettify float numbers in JavaScript.
      *
-     * @param  {String} input Valid number input to be prettified.
+     * @param  {String | Number} input Valid number input to be prettified.
      * @return {Number}       Prettified number output.
      */
     function fixFloat(input) {
@@ -89,7 +90,7 @@
         return result;
     }
 
-    /* ---- Fake Data ----- */
+    /* ---- Fake Data via Chance Library ----- */
     let products = [];
     for (let i = 0; i < 12; i++) {
         products.push({
@@ -110,6 +111,7 @@
     };
 
     /* ----  Begin  ----- */
+
     documentReady(function () {
         /**
          * Initializing state.
@@ -254,6 +256,9 @@
             });
         });
 
+        /**
+         * Attaching event listeners to apply voucher button.
+         */
         document.querySelector('.voucher__container .button').addEventListener('click', function () {
             const discountCode = document.querySelector('.voucher__container input').value;
             if (coupons[discountCode]) {
@@ -262,6 +267,7 @@
                 Velocity(document.querySelector('.voucher__container input'), 'callout.shake');
             }
         });
+
         /**
         * A function that is invoked whenever the state changes. So when the state changes, the display output in the browser also changes.
         *
@@ -310,6 +316,7 @@
                     </div>`;
                 });
                 document.querySelector('.products__container').innerHTML = itemHTMLString;
+
                 /**
                  * Attaching event listener once the DOM nodes are created. This
                  * prevents the need complex event delegation.
@@ -322,6 +329,10 @@
                     });
                 });
 
+                /**
+                 * Attching event listeners to the increase and decrease buttons.
+                 *
+                 */
                 [].forEach.call(document.querySelectorAll('.quantity .increase'), function (el) {
                     el.addEventListener('click', function () {
                         const parent = el.parentNode.parentNode;
@@ -353,6 +364,7 @@
                     });
                 });
             }
+
             /**
              * Calculating prices.
              *
