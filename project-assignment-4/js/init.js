@@ -208,8 +208,7 @@
         el.addEventListener('click', function () {
             el.previousElementSibling.select();
             document.execCommand('copy');
-            el.previousElementSibling.select();
-            document.execCommand('blur');
+            el.previousElementSibling.blur();
             el.innerHTML = 'Copied !';
             debounce(function () {
                 el.innerHTML = 'Copy <i class="ion-ios-copy"></i>';
