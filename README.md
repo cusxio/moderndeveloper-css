@@ -1,10 +1,10 @@
-# CSS Assessment
+# Modern Developer CSS
 
 For [moderndeveloper](https://moderndeveloper.com/) :zap:
 
-## Live Preview
+## Live Demo
 
-[http://moderndeveloper-css.surge.sh/](http://moderndeveloper-css.surge.sh/)
+[http://md-css.surge.sh/](http://md-css.surge.sh/)
 
 ## Development
 
@@ -16,15 +16,11 @@ npm install
 gulp -p 1
 
 # -p receives options from 1 - 6, i.e. project 1 to 6.
-
 ```
 
-## Compile
+## Production
 
 ```bash
-#  for live preview
-npm run build
-
+# For Github Pages, Surge.sh, and etc.
+$ npm run build
 ```
-
-### End
