@@ -245,25 +245,28 @@
 #three
     background-color: #171A3D
     font-family: 'Lato', sans-serif
-    height: 100vh
+    min-height: 100vh
     z-index: -1
     .container
         text-align: center
         max-width: 60rem
         margin: 0 auto
+        padding: 100px 0
     h1
         color: #fff
         text-align: center
+        font-size: 1.2rem
+        @include tablet
+            font-size: 1.8rem
 
     .question
         width: 100%
         margin: 0 auto
-        padding-top: 150px
         margin-bottom: 50px
 
     form
         text-align: left
-        width: 40%
+        width: 50%
         margin: 0 auto
 
     .opt
@@ -315,7 +318,8 @@
         margin-left: 30px
         display: block
         margin-top: 20px
-        max-width: 300px
+        max-width: 250px
+        width: 100%
         background-color: transparent
         font-family: 'Source Code Pro'
         border: none

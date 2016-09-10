@@ -349,7 +349,7 @@
 #three {
     background-color: #171a3d;
     font-family: Lato, sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     z-index: -1;
 }
 
@@ -357,23 +357,30 @@
     text-align: center;
     max-width: 60rem;
     margin: 0 auto;
+    padding: 100px 0;
 }
 
 #three h1 {
     color: #fff;
     text-align: center;
+    font-size: 1.2rem;
+}
+
+@media only screen and (min-width:600px) {
+    #three h1 {
+        font-size: 1.8rem;
+    }
 }
 
 #three .question {
     width: 100%;
     margin: 0 auto;
-    padding-top: 150px;
     margin-bottom: 50px;
 }
 
 #three form {
     text-align: left;
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -438,7 +445,8 @@
     margin-left: 30px;
     display: block;
     margin-top: 20px;
-    max-width: 300px;
+    max-width: 250px;
+    width: 100%;
     background-color: transparent;
     font-family: Source Code Pro;
     border: none;
