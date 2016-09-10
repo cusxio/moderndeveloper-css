@@ -30,23 +30,23 @@ var projectPath;
 var port;
 
 switch (args.project) {
-    case '2':
+    case 2:
         projectPath = pa2;
         port = 5002;
         break;
-    case '3':
+    case 3:
         projectPath = pa3;
         port = 5003;
         break;
-    case '4':
+    case 4:
         projectPath = pa4;
         port = 5004;
         break;
-    case '5':
+    case 5:
         projectPath = pa5;
         port = 5005;
         break;
-    case '6':
+    case 6:
         projectPath = pa6;
         port = 5006;
         break;
@@ -84,7 +84,6 @@ gulp.task('default', ['bs'], function () {
     gulp.watch(path.join(projectPath, 'index.html')).on('change', bs.reload);
 });
 
-// BUILD
 var projects = [pa1, pa2, pa3, pa4, pa5, pa6];
 
 gulp.task('build', function () {
