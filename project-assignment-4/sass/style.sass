@@ -357,7 +357,7 @@
 // Question Four
 //===================
 #four
-    height: 100vh
+    min-height: 100vh
     background: linear-gradient(to right,#454BE6, #44A0C3, #3FDAAC)
     font-family: 'Roboto', sans-serif
     h1
@@ -366,20 +366,22 @@
         letter-spacing: 2px
         font-weight: 300
         cursor: pointer
+        margin-top: 0
 
     .container
         max-width: 60rem
         margin: 0 auto
-        padding-top: 100px
+        padding: 100px 10px
     .signup
         text-align: center
-        max-width: 400px
+        max-width: 320px
         margin: 0 auto
         background-color: #fff
         min-height: 200px
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
-        overflow: auto
+        overflow: hidden
         zoom: 1
+        border-radius: 3px
         svg
             margin: 0 auto
             display: block
@@ -444,9 +446,9 @@
         border: none
         background-color: #456CD5
         color: #fff
-        width: 50%
+        width: 60%
         padding: 10px 20px
-        border-radius: 20px
+        border-radius: 3px
         text-transform: uppercase
         letter-spacing: 1.2px
         outline: none
@@ -459,13 +461,9 @@
         &:active
             background-color: #304a93
 
-    input[type=date]
-        font-weight: 300
-        color: #456CD5
-
     .social
         min-height: 20px
-        max-width: 400px
+        max-width: 320px
         margin: 0 auto
         color: #fff
         font-size: 30px
@@ -489,7 +487,7 @@
     .question
         cursor: default
         text-align: left
-        max-width: 400px
+        max-width: 320px
         margin: 0 auto
         margin-top: 30px
         color: #fff
