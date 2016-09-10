@@ -848,19 +848,18 @@ $hint: #18C2C0
 $headings: #47536A
 $bhint: #15A4FA
 #seven
-    height: 100vh
+    min-height: 100vh
     background-color: #E8F0FA
     font-family: 'Oxygen', sans-serif
     .container
         max-width: 60rem
         margin: 0 auto
-        padding-top: 100px
+        padding: 2.4rem 0.6rem
 
     .card
         border-radius: 5px
         max-width: 40rem
         margin: 0 auto
-        min-height: 300px
         background-color: #fff
         font-weight: 700
         text-transform: uppercase
@@ -877,8 +876,7 @@ $bhint: #15A4FA
         font-size: 1.2rem
 
     .time__container, .message__container, .contact__container
-        padding: 20px 50px
-
+        padding: 20px
 
     // FORM TIME / CONTACT
     .form__time, .form__contact
@@ -888,20 +886,21 @@ $bhint: #15A4FA
         text-transform: uppercase
         font-weight: 700
         margin-top: 10px
-        .date, .time, .timezone, .cname, .num, .email
-            display: inline-block
+        display: flex
+        flex-flow: row wrap
+        > div
+            display: flex
+            flex-direction: column
+            width: 100%
+            margin-bottom: 1.8rem
+            box-sizing: border-box
+            @include tablet
+                width: 50%
+                padding-right: 1.2rem
+            &:last-child
+                margin-bottom: 0
             label
                 margin-bottom: 10px
-            label, input
-                display: block
-                width: 200px
-        .time, .num
-            margin-left: 20px
-        .timezone, .email
-            margin-top: 10px
-            display: block
-            input
-                width: 200px
 
     // UTILITIES
     .section
@@ -926,6 +925,7 @@ $bhint: #15A4FA
             margin-left: 10px
     // GLOBALS
     textarea
+        width: 100%
         box-sizing: border-box
         font-weight: normal
         padding: 5px
@@ -933,6 +933,7 @@ $bhint: #15A4FA
         border: 1px solid $font
         border-radius: 3px
         outline: none
+        resize: vertical
         transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
         color: $bhint
         &:focus
@@ -951,7 +952,6 @@ $bhint: #15A4FA
         background-color: transparent
         color: $bhint
         outline: none
-        width: 60%
         &:active
             border-color: $bhint
 
@@ -980,7 +980,9 @@ $bhint: #15A4FA
 
     // BUTTON
     .form__confirmation
-        padding: 10px 55px
+        padding: 20px
+        display: flex
+        justify-content: flex-end
     button
         cursor: pointer
         font-size: 12px
@@ -994,8 +996,6 @@ $bhint: #15A4FA
         border-radius: 5px
         outline: none
         transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
-        position: relative
-        left: 350px
         margin-bottom: 20px
         &:hover
             background-color: #1293e1
