@@ -5,6 +5,8 @@
 @import url(https://fonts.googleapis.com/css?family=Oxygen:700,400,300)
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css)
 
+@import 'breakpoints.scss'
+
 //===================
 // Page Control
 //===================
@@ -53,18 +55,20 @@
     align-items: center
     justify-content: center
     flex-direction: row
-    font-size: 4rem
+    font-size: 1.2rem
     text-align: center
     font-family: 'Raleway'
     color: white
     background-color: #E0E0E0
     text-shadow: 0 1px 0 hsl(174, 5%, 80%), 0 2px 0 hsl(174, 5%, 75%), 0 3px 0 hsl(174, 5%, 70%), 0 4px 0 hsl(174, 5%, 66%), 0 5px 0 hsl(174, 5%, 64%), 0 6px 0 hsl(174, 5%, 62%), 0 7px 0 hsl(174, 5%, 61%), 0 8px 0 hsl(174, 5%, 60%), 0 0 5px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .2), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .3)
+    @include tablet
+        font-size: 2.4rem
 
 //===================
 // Question One
 //===================
 #one
-    height: 100vh
+    min-height: 100vh
     background: linear-gradient(to right,#454BE6, #44A0C3, #3FDAAC)
     font-family: 'Roboto', sans-serif
     h1
@@ -72,18 +76,18 @@
         color: #fff
         letter-spacing: 2px
         font-weight: 300
+        margin-top: 0
 
     .container
         max-width: 60rem
         margin: 0 auto
-        padding-top: 100px
+        padding: 100px 0
     .signup
         text-align: center
-        max-width: 400px
+        max-width: 320px
         margin: 0 auto
         background-color: #fff
-        min-height: 400px
-        border-radius: 10px
+        border-radius: 3px
         padding: 10px
         box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
         svg
@@ -93,7 +97,7 @@
             color: #454BE6
             padding: 30px 0
     form
-        padding: 0 50px
+        padding: 0 2.4rem
         div
             position: relative
             margin-bottom: 45px
@@ -115,9 +119,9 @@
         border: none
         background-color: #456CD5
         color: #fff
-        width: 50%
+        width: 60%
         padding: 10px 20px
-        border-radius: 20px
+        border-radius: 3px
         text-transform: uppercase
         letter-spacing: 1.2px
         box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)
@@ -136,7 +140,7 @@
 
     .question
         text-align: left
-        max-width: 400px
+        max-width: 320px
         margin: 0 auto
         margin-top: 20px
         color: #fff
@@ -160,16 +164,20 @@
         height: 100vh
         background: linear-gradient(135deg, #74bddb 0%, #a8d1eb 32%, #cddbf5 56%, #e4e6fb 73%, #f6f4f8 100%)
         flex-direction: column
+        padding: 0 1.2rem
 
     .search
         display: flex
-        flex-direction: row
         border: 2px solid #A186D3
         border-radius: 5px
-        padding: 20px
+        padding: 1.2rem
         align-items: center
-
+        max-width: 400px
+        width: 90%
+    .input
+        width: 45%
     input[type=search]
+        width: 100%
         font-size: 17px
         background-color: transparent
         border: none
@@ -180,15 +188,16 @@
         color: #777
 
     .categories
+        text-align: right
+        width: 45%
         user-select: none
         position: relative
-        margin-left: 20px
         z-index: 1
         &:after
             content: ""
             pointer-events: none
             position: absolute
-            right: 5px
+            right: 10px
             margin-top: -3px
             top: 50%
             width: 6px
@@ -216,9 +225,9 @@
         transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
 
     .submit
+        text-align: right
+        width: 10%
         cursor: pointer
-        padding-top: 5px
-        margin-left: 10px
         background-color: transparent
         border: none
         outline: none
@@ -229,12 +238,6 @@
         &:hover
             i
                 color: #7956B9
-
-    .note
-        margin-top: 80px
-        font-size: 14px
-        color: #A186D3
-        opacity: 0.6
 
 //===================
 // Question Three

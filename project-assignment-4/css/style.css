@@ -52,6 +52,7 @@
 }
 
 #intro {
+    height: 100vh;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -60,7 +61,7 @@
     justify-content: center;
     -ms-flex-direction: row;
         flex-direction: row;
-    font-size: 4rem;
+    font-size: 1.2rem;
     text-align: center;
     font-family: Raleway;
     color: #fff;
@@ -81,11 +82,14 @@
                  0 20px 20px rgba(0, 0, 0, .3);
 }
 
-#intro, #one {
-    height: 100vh;
+@media only screen and (min-width:600px) {
+    #intro {
+        font-size: 2.4rem;
+    }
 }
 
 #one {
+    min-height: 100vh;
     background: linear-gradient(90deg, #454be6, #44a0c3, #3fdaac);
     font-family: Roboto, sans-serif;
 }
@@ -95,21 +99,21 @@
     color: #fff;
     letter-spacing: 2px;
     font-weight: 300;
+    margin-top: 0;
 }
 
 #one .container {
     max-width: 60rem;
     margin: 0 auto;
-    padding-top: 100px;
+    padding: 100px 0;
 }
 
 #one .signup {
     text-align: center;
-    max-width: 400px;
+    max-width: 320px;
     margin: 0 auto;
     background-color: #fff;
-    min-height: 400px;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 10px;
     box-shadow: 0 19px 38px rgba(0, 0, 0, .3), 0 15px 12px rgba(0, 0, 0, .22);
 }
@@ -123,7 +127,7 @@
 }
 
 #one form {
-    padding: 0 50px;
+    padding: 0 2.4rem;
 }
 
 #one form div {
@@ -169,9 +173,9 @@
     border: none;
     background-color: #456cd5;
     color: #fff;
-    width: 50%;
+    width: 60%;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 3px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),
@@ -198,7 +202,7 @@
 
 #one .question {
     text-align: left;
-    max-width: 400px;
+    max-width: 320px;
     margin: 0 auto;
     margin-top: 20px;
     color: #fff;
@@ -224,6 +228,7 @@
     background: linear-gradient(135deg, #74bddb, #a8d1eb 32%, #cddbf5 56%, #e4e6fb 73%, #f6f4f8);
     -ms-flex-direction: column;
         flex-direction: column;
+    padding: 0 1.2rem;
 }
 
 #two .container, #two .search {
@@ -234,14 +239,19 @@
 }
 
 #two .search {
-    -ms-flex-direction: row;
-        flex-direction: row;
     border: 2px solid #a186d3;
     border-radius: 5px;
-    padding: 20px;
+    padding: 1.2rem;
+    max-width: 400px;
+    width: 90%;
+}
+
+#two .input {
+    width: 45%;
 }
 
 #two input[type=search] {
+    width: 100%;
     font-size: 17px;
     background-color: transparent;
     border: none;
@@ -270,12 +280,13 @@
 }
 
 #two .categories {
+    text-align: right;
+    width: 45%;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
     position: relative;
-    margin-left: 20px;
     z-index: 1;
 }
 
@@ -283,7 +294,7 @@
     content: "";
     pointer-events: none;
     position: absolute;
-    right: 5px;
+    right: 10px;
     margin-top: -3px;
     top: 50%;
     width: 6px;
@@ -321,8 +332,8 @@
 }
 
 #two .submit {
-    padding-top: 5px;
-    margin-left: 10px;
+    text-align: right;
+    width: 10%;
 }
 
 #two .submit i {
@@ -333,13 +344,6 @@
 
 #two .submit:hover i {
     color: #7956b9;
-}
-
-#two .note {
-    margin-top: 80px;
-    font-size: 14px;
-    color: #a186d3;
-    opacity: .6;
 }
 
 #three {
