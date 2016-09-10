@@ -25,6 +25,7 @@ var pa4 = path.join(process.cwd(), 'project-assignment-4');
 var pa5 = path.join(process.cwd(), 'project-assignment-5');
 var pa6 = path.join(process.cwd(), 'project-assignment-6');
 var dist = path.join(process.cwd(), 'dist');
+var pub = path.join(process.cwd(), 'public');
 
 var projectPath;
 var port;
@@ -61,10 +62,10 @@ switch (args.project) {
 
 gulp.task('bs', ['sass'], function () {
     bs.init({
-        server: {
-            baseDir: projectPath,
-        },
+        server: [projectPath, pub],
         port: port,
+        logPrefix: 'MD',
+        notify: false,
     });
 });
 
