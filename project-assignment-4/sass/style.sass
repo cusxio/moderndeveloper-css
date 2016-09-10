@@ -674,30 +674,27 @@ $hint: #18C2C0
 #six
     background-color: $bg
     font-family: 'Raleway', sans-serif
-    padding-bottom: 100px
+    min-height: 100vh
+    padding-bottom: 2.4rem
     .container
-        max-width: 60rem
+        max-width: 40rem
         margin: 0 auto
-    .hint
-        bottom: -20px
 
     .form__name
         color: #B9BAC5
         padding: 10px
-        font-size: 1.5rem
         text-transform: uppercase
         letter-spacing: 2px
         font-weight: 700
-        padding-top: 30px
+        padding-top: 2.4rem
+        @include tablet
+            font-size: 1.5rem
 
     .form__container
-        width: 100%
-        min-height: 300px
         background-color: #fff
         border: 1px solid $outline
         border-radius: 5px
         padding: 30px
-        // margin-bottom: 100px
 
     // PERSONAL -- FORM
     .personal--form
@@ -706,21 +703,24 @@ $hint: #18C2C0
         letter-spacing: 0.5px
         text-transform: uppercase
         font-weight: 700
-        padding: 10px 55px
-        .last
-            margin-left: 40px
-        .first, .last, .email
-            display: inline-block
-            position: relative
-            label
-                margin-bottom: 10px
-            label, input
-                display: block
-                min-width: 250px
-        .email
-            margin-top: 30px
-            input
-                width: 540px
+        padding: 10px 0
+        margin-top: 10px
+        form
+            display: flex
+            flex-flow: row wrap
+            .first, .last, .email
+                position: relative
+                display: flex
+                width: 100%
+                flex-direction: column
+                margin-bottom: 1.8rem
+                label
+                    margin-bottom: 10px
+            .first, .last, .email
+                box-sizing: border-box
+                @include tablet
+                    width: 50%
+                    padding-right: 1.2rem
 
     // Shipping Address
     .shipping--form
@@ -729,37 +729,40 @@ $hint: #18C2C0
         letter-spacing: 0.5px
         text-transform: uppercase
         font-weight: 700
-        padding: 10px 55px
+        // padding: 10px 55px
+        padding: 10px 0
         margin-top: 10px
-        .row.two, .row.three
-            margin-top: 30px
-        .address-two, .state, .country
-            margin-left: 40px
-        .address, .address-two, .city, .state, .zip, .country
-            display: inline-block
-            position: relative
-            label
-                margin-bottom: 10px
-            label, input
-                display: block
-                min-width: 250px
+        form
+            display: flex
+            flex-flow: row wrap
+            .row.one, .row.two, .row.three
+                display: flex
+                flex-direction: column
+                width: 100%
+                @include tablet
+                    flex-direction: row
+                > div
+                    position: relative
+                    display: flex
+                    flex-direction: column
+                    margin-bottom: 1.8rem
+                    @include tablet
+                        width: 50%
+                        padding-right: 1.2rem
+                    label
+                        margin-bottom: 10px
 
     // Questions
     .form__question
-        padding: 10px 55px
         color: $header
+        display: flex
+        align-items: center
         p
-            display: inline-block
-            margin-left: 10px
+            margin-left: 1.2rem
             font-weight: 500
-            vertical-align: middle
         input[type=checkbox]
             cursor: pointer
-            display: inline-block
-            vertical-align: middle
             appearance: none
-            width: 20px
-            height: 20px
             background-color: transparent
             border-radius: 3px
             border: 2px solid #646E8A
@@ -790,7 +793,9 @@ $hint: #18C2C0
 
     // BUTTON
     .form__confirmation
-        padding: 10px 55px
+        display: flex
+        justify-content: flex-end
+        margin-top: 1.2rem
     button
         cursor: pointer
         font-size: 12px
@@ -804,8 +809,6 @@ $hint: #18C2C0
         border-radius: 5px
         outline: none
         transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)
-        position: relative
-        left: 80%
         &:hover
             background-color: #15aeac
         &:active
@@ -813,33 +816,31 @@ $hint: #18C2C0
 
     // UTILITIES
     .box
+        display: flex
+        justify-content: center
+        align-items: center
         cursor: default
         user-select: none
-        display: inline-block
         font-size: 1.5rem
         font-weight: 400
-        height: 40px
-        width: 40px
-        line-height: 35px
-        border-radius: 50px
+        height: 32px
+        width: 32px
+        border-radius: 50%
         border: 2px solid #646E8A
-        text-align: center
         color: $header
-        &.billing
-            line-height: 30px
-
-    section
-        margin-top: 20px
-        &:nth-child(1)
-            margin-top: 0px
 
     .sections
+        display: flex
+        align-items: center
         span
             color: $header
             text-transform: uppercase
             font-weight: 500
             letter-spacing: 1px
             margin-left: 15px
+
+    .hint
+        bottom: -20px
 
 //===================
 // Question Seven

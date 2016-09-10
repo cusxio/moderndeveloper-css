@@ -909,31 +909,31 @@
 #six {
     background-color: #eceef4;
     font-family: Raleway, sans-serif;
-    padding-bottom: 100px;
+    min-height: 100vh;
+    padding-bottom: 2.4rem;
 }
 
 #six .container {
-    max-width: 60rem;
+    max-width: 40rem;
     margin: 0 auto;
-}
-
-#six .hint {
-    bottom: -20px;
 }
 
 #six .form__name {
     color: #b9bac5;
     padding: 10px;
-    font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 700;
-    padding-top: 30px;
+    padding-top: 2.4rem;
+}
+
+@media only screen and (min-width:600px) {
+    #six .form__name {
+        font-size: 1.5rem;
+    }
 }
 
 #six .form__container {
-    width: 100%;
-    min-height: 300px;
     background-color: #fff;
     border: 1px solid #dadde8;
     border-radius: 5px;
@@ -946,37 +946,44 @@
     letter-spacing: .5px;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 10px 55px;
+    padding: 10px 0;
+    margin-top: 10px;
 }
 
-#six .personal--form .last {
-    margin-left: 40px;
+#six .personal--form form {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
 }
 
-#six .personal--form .email, #six .personal--form .first,
-#six .personal--form .last {
-    display: inline-block;
+#six .personal--form form .email, #six .personal--form form .first,
+#six .personal--form form .last {
     position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin-bottom: 1.8rem;
 }
 
-#six .personal--form .email label, #six .personal--form .first label,
-#six .personal--form .last label {
+#six .personal--form form .email label, #six .personal--form form .first label,
+#six .personal--form form .last label {
     margin-bottom: 10px;
 }
 
-#six .personal--form .email input, #six .personal--form .email label,
-#six .personal--form .first input, #six .personal--form .first label,
-#six .personal--form .last input, #six .personal--form .last label {
-    display: block;
-    min-width: 250px;
+#six .personal--form form .email, #six .personal--form form .first,
+#six .personal--form form .last {
+    box-sizing: border-box;
 }
 
-#six .personal--form .email {
-    margin-top: 30px;
-}
-
-#six .personal--form .email input {
-    width: 540px;
+@media only screen and (min-width:600px) {
+    #six .personal--form form .email, #six .personal--form form .first,
+    #six .personal--form form .last {
+        width: 50%;
+        padding-right: 1.2rem;
+    }
 }
 
 #six .shipping--form {
@@ -985,63 +992,77 @@
     letter-spacing: .5px;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 10px 55px;
+    padding: 10px 0;
     margin-top: 10px;
 }
 
-#six .shipping--form .row.three, #six .shipping--form .row.two {
-    margin-top: 30px;
+#six .shipping--form form {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
 }
 
-#six .shipping--form .address-two, #six .shipping--form .country,
-#six .shipping--form .state {
-    margin-left: 40px;
+#six .shipping--form form .row.one, #six .shipping--form form .row.three,
+#six .shipping--form form .row.two {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    width: 100%;
 }
 
-#six .shipping--form .address, #six .shipping--form .address-two,
-#six .shipping--form .city, #six .shipping--form .country,
-#six .shipping--form .state, #six .shipping--form .zip {
-    display: inline-block;
+@media only screen and (min-width:600px) {
+    #six .shipping--form form .row.one, #six .shipping--form form .row.three,
+    #six .shipping--form form .row.two {
+        -ms-flex-direction: row;
+            flex-direction: row;
+    }
+}
+
+#six .shipping--form form .row.one>div, #six .shipping--form form .row.three>div,
+#six .shipping--form form .row.two>div {
     position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin-bottom: 1.8rem;
 }
 
-#six .shipping--form .address-two label, #six .shipping--form .address label,
-#six .shipping--form .city label, #six .shipping--form .country label,
-#six .shipping--form .state label, #six .shipping--form .zip label {
+@media only screen and (min-width:600px) {
+    #six .shipping--form form .row.one>div,
+    #six .shipping--form form .row.three>div,
+    #six .shipping--form form .row.two>div {
+        width: 50%;
+        padding-right: 1.2rem;
+    }
+}
+
+#six .shipping--form form .row.one>div label,
+#six .shipping--form form .row.three>div label,
+#six .shipping--form form .row.two>div label {
     margin-bottom: 10px;
 }
 
-#six .shipping--form .address-two input, #six .shipping--form .address-two label,
-#six .shipping--form .address input, #six .shipping--form .address label,
-#six .shipping--form .city input, #six .shipping--form .city label,
-#six .shipping--form .country input, #six .shipping--form .country label,
-#six .shipping--form .state input, #six .shipping--form .state label,
-#six .shipping--form .zip input, #six .shipping--form .zip label {
-    display: block;
-    min-width: 250px;
-}
-
 #six .form__question {
-    padding: 10px 55px;
     color: #646e8a;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 #six .form__question p {
-    display: inline-block;
-    margin-left: 10px;
+    margin-left: 1.2rem;
     font-weight: 500;
-    vertical-align: middle;
 }
 
 #six .form__question input[type=checkbox] {
     cursor: pointer;
-    display: inline-block;
-    vertical-align: middle;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
-    width: 20px;
-    height: 20px;
     background-color: transparent;
     border-radius: 3px;
     border: 2px solid #646e8a;
@@ -1095,7 +1116,11 @@
 }
 
 #six .form__confirmation {
-    padding: 10px 55px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-top: 1.2rem;
 }
 
 #six button {
@@ -1111,8 +1136,6 @@
     border-radius: 5px;
     outline: none;
     transition: background-color .2s cubic-bezier(.4, 0, .2, 1);
-    position: relative;
-    left: 80%;
 }
 
 #six button:hover {
@@ -1124,33 +1147,27 @@
 }
 
 #six .box {
+    -ms-flex-pack: center;
+    justify-content: center;
     cursor: default;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-    display: inline-block;
     font-size: 1.5rem;
     font-weight: 400;
-    height: 40px;
-    width: 40px;
-    line-height: 35px;
-    border-radius: 50px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
     border: 2px solid #646e8a;
-    text-align: center;
     color: #646e8a;
 }
 
-#six .box.billing {
-    line-height: 30px;
-}
-
-#six section {
-    margin-top: 20px;
-}
-
-#six section:nth-child(1) {
-    margin-top: 0;
+#six .box, #six .sections {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 #six .sections span {
@@ -1159,6 +1176,10 @@
     font-weight: 500;
     letter-spacing: 1px;
     margin-left: 15px;
+}
+
+#six .hint {
+    bottom: -20px;
 }
 
 #seven {
