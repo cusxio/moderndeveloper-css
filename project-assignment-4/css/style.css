@@ -1426,27 +1426,34 @@
 }
 
 #eight .container {
+    box-sizing: border-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     -ms-flex-direction: column;
         flex-direction: column;
+    padding: 10px;
 }
 
 #eight .price h1 {
     font-weight: 300;
     color: #18c2c0;
     letter-spacing: 2px;
+    text-align: center;
+}
+
+#eight form {
+    width: 100%;
 }
 
 #eight .card {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 520px;
+    margin: 0 auto 30px;
+    width: 100%;
+    max-width: 520px;
     height: 400px;
 }
 
@@ -1478,15 +1485,31 @@
     background-color: #242852;
 }
 
-#eight .credit .left, #eight .credit .right, #eight .paypal .left,
-#eight .paypal .right {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+#eight .credit img {
+    display: none;
+}
+
+#eight .credit img:nth-child(1) {
+    display: initial;
+}
+
+@media only screen and (min-width:600px) {
+    #eight .credit img {
+        display: initial;
+    }
+}
+
+#eight .credit, #eight .paypal {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 #eight .credit .left, #eight .paypal .left {
-    float: left;
+    position: relative;
     margin-left: 50px;
 }
 
@@ -1534,7 +1557,6 @@
 }
 
 #eight .credit .right, #eight .paypal .right {
-    float: right;
     margin-right: 30px;
 }
 
@@ -1553,10 +1575,16 @@
     background-color: #fff;
 }
 
+#eight .cardholder, #eight .number {
+    display: -ms-flexbox;
+    display: flex;
+}
+
 #eight .cardholder .info, #eight .number .info {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
     margin-left: 40px;
 }
 
@@ -1570,13 +1598,20 @@
 #eight .cardholder .info input, #eight .number .info input {
     display: inline-block;
     max-width: 300px;
-    width: 300px;
+    width: calc(100% - 100px);
     background-color: transparent;
     font-family: Source Code Pro;
     border: none;
     outline: none;
-    margin-left: 50px;
+    padding-left: 50px;
+    padding-right: 40px;
     color: #fff;
+}
+
+@media only screen and (min-width:600px) {
+    #eight .cardholder .info input, #eight .number .info input {
+        width: auto;
+    }
 }
 
 #eight .cardholder .info input::-webkit-input-placeholder,
@@ -1619,23 +1654,29 @@
     letter-spacing: 2px;
 }
 
+#eight .details {
+    display: -ms-flexbox;
+    display: flex;
+}
+
 #eight .details .left, #eight .details .right {
     box-sizing: border-box;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 40px;
 }
 
 #eight .details .left {
-    float: left;
-    padding-left: 40px;
     width: 50%;
 }
 
 #eight .details .left label {
     letter-spacing: .5px;
     color: #8f92c3;
-    width: 100px;
     margin-right: 20px;
 }
 
@@ -1658,12 +1699,10 @@
 }
 
 #eight .details .right {
-    float: right;
     width: 50%;
 }
 
 #eight .details .right label {
-    margin-right: 20px;
     color: #8f92c3;
 }
 
@@ -1699,10 +1738,9 @@
 
 #eight .details .right span {
     text-align: center;
-    display: inline-block;
+    display: none;
     font-family: Source Code Pro;
     cursor: pointer;
-    margin-left: 50px;
     color: #18c2c0;
     width: 24px;
     height: 24px;
@@ -1710,12 +1748,25 @@
     border-radius: 50%;
 }
 
+@media only screen and (min-width:600px) {
+    #eight .details .right span {
+        display: inline-block;
+    }
+}
+
+#eight .button {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
 #eight .button button {
+    width: 100%;
+    box-sizing: border-box;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 1px;
-    width: 520px;
     background-color: #18c2c0;
     border: none;
     color: #fff;
